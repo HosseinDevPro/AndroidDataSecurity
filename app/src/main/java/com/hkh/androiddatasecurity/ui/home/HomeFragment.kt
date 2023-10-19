@@ -41,7 +41,7 @@ class HomeFragment: Fragment() {
             findNavController().navigate(R.id.symmetricFragment)
         }
         asymmetricButton.setOnClickListener {
-            Toast.makeText(requireContext(), "asymmetric", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.asymmetricFragment)
         }
         hashButton.setOnClickListener {
             Toast.makeText(requireContext(), "hash", Toast.LENGTH_SHORT).show()

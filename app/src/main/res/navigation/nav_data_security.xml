@@ -17,4 +17,10 @@
         android:label="SymmetricFragment"
         tools:layout="@layout/fragment_symmetric"/>
 
+    <fragment
+        android:id="@+id/asymmetricFragment"
+        android:name="com.hkh.androiddatasecurity.ui.asymmetric.AsymmetricFragment"
+        android:label="AsymmetricFragment"
+        tools:layout="@layout/fragment_asymmetric"/>
+
 </navigation>
