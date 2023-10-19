@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.hkh.androiddatasecurity.R
 import com.hkh.androiddatasecurity.databinding.FragmentHomeBinding
 
 class HomeFragment: Fragment() {
@@ -26,9 +27,8 @@ class HomeFragment: Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.homeText
         homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+            binding.homeText.text = it
         }
 
         setupListener()
@@ -38,7 +38,7 @@ class HomeFragment: Fragment() {
 
     private fun setupListener() = with(binding) {
         symmetricButton.setOnClickListener {
-            Toast.makeText(requireContext(), "symmetric", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.symmetricFragment)
         }
         asymmetricButton.setOnClickListener {
             Toast.makeText(requireContext(), "asymmetric", Toast.LENGTH_SHORT).show()

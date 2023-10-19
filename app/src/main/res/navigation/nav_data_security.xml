@@ -11,4 +11,10 @@
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home"/>
 
+    <fragment
+        android:id="@+id/symmetricFragment"
+        android:name="com.hkh.androiddatasecurity.ui.symmetric.SymmetricFragment"
+        android:label="SymmetricFragment"
+        tools:layout="@layout/fragment_symmetric"/>
+
 </navigation>
