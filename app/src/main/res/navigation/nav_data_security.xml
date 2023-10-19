@@ -23,4 +23,10 @@
         android:label="AsymmetricFragment"
         tools:layout="@layout/fragment_asymmetric"/>
 
+    <fragment
+        android:id="@+id/hashFragment"
+        android:name="com.hkh.androiddatasecurity.ui.hash.HashFragment"
+        android:label="HashFragment"
+        tools:layout="@layout/fragment_hash"/>
+
 </navigation>
