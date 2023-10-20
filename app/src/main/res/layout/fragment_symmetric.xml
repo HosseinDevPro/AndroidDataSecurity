@@ -12,12 +12,136 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.1"
-        tools:text="Sample Text"/>
+        android:text="@string/symmetric_page_title" />
+
+    <Button
+        android:id="@+id/generateKeyButton"
+        android:layout_width="150dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Generate Key"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/removeKeyButton"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/symmetric_text" />
+
+    <Button
+        android:id="@+id/removeKeyButton"
+        android:layout_width="150dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#E91E63"
+        android:text="Remove Key"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/generateKeyButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/generateKeyButton"
+        app:layout_constraintTop_toTopOf="@+id/generateKeyButton" />
+
+    <TextView
+        android:id="@+id/keyStatusTextView"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="20dp"
+        android:background="#DAD8D8"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generateKeyButton"
+        tools:text="Key Exist?" />
+
+    <EditText
+        android:id="@+id/userInputEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="50dp"
+        android:hint="please enter a text"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/keyStatusTextView" />
+
+    <Button
+        android:id="@+id/encryptKeyButton"
+        android:layout_width="150dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#FF9800"
+        android:text="Encrypt Message"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/removeKeyButton"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userInputEditText" />
+
+    <Button
+        android:id="@+id/decryptKeyButton"
+        android:layout_width="150dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#009688"
+        android:text="Decrypt Message"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/encryptKeyButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/encryptKeyButton"
+        app:layout_constraintTop_toTopOf="@+id/encryptKeyButton" />
+
+    <TextView
+        android:id="@+id/encryptedTextView"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="20dp"
+        android:background="#DAD8D8"
+        android:gravity="center"
+        android:paddingHorizontal="4dp"
+        android:text="@string/unknown_encrypted"
+        android:textAlignment="center"
+        android:textColor="#FF9800"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/encryptKeyButton" />
+
+    <TextView
+        android:id="@+id/decryptedTextView"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="48dp"
+        android:background="#DAD8D8"
+        android:gravity="center"
+        android:paddingHorizontal="4dp"
+        android:text="@string/unknown_decrypted"
+        android:textAlignment="center"
+        android:textColor="#009688"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/encryptedTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@+id/encryptedTextView"
+        app:layout_constraintTop_toTopOf="@+id/encryptedTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/errorView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:visibility="gone"
+        android:background="@color/black"
+        android:text="Cant authenticate, please add a fingerprint."/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
