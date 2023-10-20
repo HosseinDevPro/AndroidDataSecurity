@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AndroidDataSecurity</string>
+
+    <string name="symmetric_page_title">We are using reversible-symmetric way with AES-256 algorithm data encryption/decryption</string>
+
+    <string name="unknown_encrypted">Encrypted: ???</string>
+    <string name="unknown_decrypted">Decrypted: ???</string>
+
+    <string name="key_is_exist">Key Is Exist.</string>
+    <string name="key_was_not_exist">Key Was Not Exist!</string>
+    <string name="user_input_is_empty">User Input Is Empty!</string>
+    <string name="encrypted_text_is_empty">Encrypted Text Is Empty!</string>
+    <string name="failed_to_read_biometric">Failed to read biometric</string>
+
 </resources>
