@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidDataSecurity"
 include(":app")
- 
+include(":security")
