@@ -10,6 +10,7 @@ object SecurityConstant {
     const val KEY_SIZE = 256
     const val AES_GCM_NOPADDING = "AES/GCM/NoPadding"
     const val AUTHENTICATION_TAG_SIZE = 128
+    const val AUTHENTICATION_VALIDITY_DURATION = 10
 
     const val AUTHENTICATORS = BiometricManager.Authenticators.BIOMETRIC_STRONG
 

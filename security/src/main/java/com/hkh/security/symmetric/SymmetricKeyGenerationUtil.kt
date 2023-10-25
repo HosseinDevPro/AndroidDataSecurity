@@ -89,11 +89,11 @@ class SymmetricKeyGenerationUtil(private val keyStoreManager: KeyStoreManager) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 // Set additional security feature for Android R (API level 30) and higher
                 setUserAuthenticationParameters(
-                    10,// The key will require strong biometric authentication and remain valid for 10 seconds
+                    AUTHENTICATION_VALIDITY_DURATION,// The key will require strong biometric authentication and remain valid for 10 seconds
                     KeyProperties.AUTH_BIOMETRIC_STRONG// Set user authentication strong for a cryptographic key
                 )
             } else {
-                setUserAuthenticationValidityDurationSeconds(10) // Specify user authentication validity duration (in seconds)
+                setUserAuthenticationValidityDurationSeconds(AUTHENTICATION_VALIDITY_DURATION) // Specify user authentication validity duration (in seconds)
             }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 // Set additional security feature for Android N (API level 24) and higher
