@@ -83,19 +83,25 @@ class SymmetricKeyGenerationUtil(private val keyStoreManager: KeyStoreManager) {
             setKeySize(KEY_SIZE) // Set the key size (e.g., 256 bits)
             setBlockModes(KeyProperties.BLOCK_MODE_GCM) // Use GCM block mode for encryption
             setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE) // Specify no encryption padding
-            setUserAuthenticationValidityDurationSeconds(10) // Specify user authentication validity duration (in seconds)
-            setRandomizedEncryptionRequired(true) // Require randomized encryption for added security
             setUserAuthenticationRequired(true) // Require user authentication to use the key
-
+            setRandomizedEncryptionRequired(true) // Require randomized encryption for added security
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                // Set additional security feature for Android R (API level 30) and higher
+                setUserAuthenticationParameters(
+                    10,// The key will require strong biometric authentication and remain valid for 10 seconds
+                    KeyProperties.AUTH_BIOMETRIC_STRONG// Set user authentication strong for a cryptographic key
+                )
+            } else {
+                setUserAuthenticationValidityDurationSeconds(10) // Specify user authentication validity duration (in seconds)
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                // Set additional security feature for Android N (API level 24) and higher
+                setInvalidatedByBiometricEnrollment(true) // Invalidate the key if biometric enrollment changes
+            }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 // Set additional security features for Android P (API level 28) and higher
                 setUnlockedDeviceRequired(true) // Require an unlocked device to use the key
                 setIsStrongBoxBacked(true) // Use StrongBox security if available
-            }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                // Set additional security feature for Android N (API level 24) and higher
-                setInvalidatedByBiometricEnrollment(true) // Invalidate the key if biometric enrollment changes
             }
         }
         return builder.build() // Build and return the KeyGenParameterSpec
