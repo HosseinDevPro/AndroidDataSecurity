@@ -1,4 +1,4 @@
-package com.hkh.androiddatasecurity.common
+package com.hkh.security
 
 import androidx.biometric.BiometricManager
 

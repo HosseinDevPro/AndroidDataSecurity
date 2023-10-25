@@ -1,20 +1,23 @@
-package com.hkh.androiddatasecurity.common
+package com.hkh.security
 
+import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS
 import androidx.biometric.BiometricPrompt
 import androidx.biometric.BiometricPrompt.PromptInfo
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
-import com.hkh.androiddatasecurity.R
 import javax.crypto.Cipher
 
-object FingerprintPrompt {
+class FingerprintPrompt(private val activity: FragmentActivity) {
 
-    fun show(activity: FragmentActivity, cipher: Cipher? = null) =
+    fun canAuthenticate() = BiometricManager.from(activity.applicationContext)
+        .canAuthenticate(Constant.AUTHENTICATORS) == BIOMETRIC_SUCCESS
+
+    fun show(title: String, description: String, cipher: Cipher? = null) =
         MutableLiveData<AuthenticationResultModel>().also { resultModel ->
-            val biometricPrompt = buildBiometricPrompt(activity, resultModel)
-            val promptInfo = buildPromptInfo(activity)
+            val biometricPrompt = buildBiometricPrompt(resultModel)
+            val promptInfo = buildPromptInfo(title, description)
             with(biometricPrompt) {
                 cipher?.let {
                     authenticate(promptInfo, BiometricPrompt.CryptoObject(it))
@@ -22,18 +25,16 @@ object FingerprintPrompt {
             }
         }
 
-    private fun buildBiometricPrompt(
-        activity: FragmentActivity,
-        out: MutableLiveData<AuthenticationResultModel>
-    ) = BiometricPrompt(
-        activity,
-        ContextCompat.getMainExecutor(activity),
-        AuthenticationCallback(out)
-    )
+    private fun buildBiometricPrompt(out: MutableLiveData<AuthenticationResultModel>) =
+        BiometricPrompt(
+            activity,
+            ContextCompat.getMainExecutor(activity),
+            AuthenticationCallback(out)
+        )
 
-    private fun buildPromptInfo(activity: FragmentActivity) = PromptInfo.Builder()
-        .setTitle(activity.getString(R.string.need_finger_print_for_operation))
-        .setNegativeButtonText(activity.getString(R.string.cancel))
+    private fun buildPromptInfo(title: String, description: String) = PromptInfo.Builder()
+        .setTitle(title)
+        .setNegativeButtonText(description)
         .setAllowedAuthenticators(Constant.AUTHENTICATORS)
         .build()
 

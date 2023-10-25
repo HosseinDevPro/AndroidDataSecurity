@@ -1,6 +1,6 @@
-package com.hkh.androiddatasecurity.data
+package com.hkh.security.symmetric
 
-import com.hkh.androiddatasecurity.common.Utils.base64Encode
+import com.hkh.security.Base64Utils.base64Encode
 
 data class SealedData(
     val cipheredBytes: ByteArray,

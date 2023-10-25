@@ -1,4 +1,4 @@
-package com.hkh.androiddatasecurity.common
+package com.hkh.security
 
 import androidx.biometric.BiometricPrompt
 import javax.crypto.Cipher

@@ -1,4 +1,4 @@
-package com.hkh.androiddatasecurity.common
+package com.hkh.security.symmetric
 
 import android.os.Build
 import android.security.KeyStoreException
@@ -6,15 +6,15 @@ import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyPermanentlyInvalidatedException
 import android.security.keystore.KeyProperties
 import android.util.Log
-import com.hkh.androiddatasecurity.common.Constant.AES_GCM_NOPADDING
-import com.hkh.androiddatasecurity.common.Constant.ANDROID_KEY_STORE_PROVIDER
-import com.hkh.androiddatasecurity.common.Constant.AUTHENTICATION_TAG_SIZE
-import com.hkh.androiddatasecurity.common.Constant.KEY_ALIAS_SYMMETRIC
-import com.hkh.androiddatasecurity.common.Constant.KEY_SIZE
-import com.hkh.androiddatasecurity.common.Utils.base64Decode
-import com.hkh.androiddatasecurity.data.SealedData
+import com.hkh.security.Base64Utils.base64Decode
+import com.hkh.security.Constant.AES_GCM_NOPADDING
+import com.hkh.security.Constant.ANDROID_KEY_STORE_PROVIDER
+import com.hkh.security.Constant.APP_TAG
+import com.hkh.security.Constant.AUTHENTICATION_TAG_SIZE
+import com.hkh.security.Constant.KEY_ALIAS_SYMMETRIC
+import com.hkh.security.Constant.KEY_SIZE
+import com.hkh.security.KeyStoreManager
 import java.io.IOException
-import java.lang.Exception
 import java.nio.charset.StandardCharsets
 import java.security.InvalidAlgorithmParameterException
 import java.security.InvalidKeyException
@@ -56,19 +56,19 @@ class SymmetricKeyGenerationUtil(private val keyStoreManager: KeyStoreManager) {
             return aesKeyGenerator.generateKey()
         } catch (e: NoSuchAlgorithmException) {
             // Handle exceptions for NoSuchAlgorithmException (e.g., if AES is not supported)
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: NoSuchProviderException) {
             // Handle exceptions for NoSuchProviderException (e.g., if the Keystore provider is not available)
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: InvalidAlgorithmParameterException) {
             // Handle exceptions for InvalidAlgorithmParameterException (e.g., invalid key generation parameters)
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: KeyPermanentlyInvalidatedException) {
             // Handle exceptions for KeyPermanentlyInvalidatedException (e.g., key invalidated due to biometric changes)
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         }
     }
@@ -136,39 +136,39 @@ class SymmetricKeyGenerationUtil(private val keyStoreManager: KeyStoreManager) {
             )
         } catch (e: UnrecoverableEntryException) {
             // Handle exceptions related to key retrieval and keystore operations
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: NoSuchAlgorithmException) {
             // Handle exceptions related to unsupported algorithms
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: CertificateException) {
             // Handle exceptions related to certificate issues
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: IOException) {
             // Handle exceptions related to input/output issues
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: NoSuchPaddingException) {
             // Handle exceptions related to unsupported padding
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: InvalidKeyException) {
             // Handle exceptions related to invalid encryption key
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: IllegalBlockSizeException) {
             // Handle exceptions related to illegal block sizes
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: BadPaddingException) {
             // Handle exceptions related to bad padding
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: IllegalArgumentException) {
             // Handle exceptions related to illegal argument
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         }
     }
@@ -199,39 +199,39 @@ class SymmetricKeyGenerationUtil(private val keyStoreManager: KeyStoreManager) {
             return String(decryptedBytes, StandardCharsets.UTF_8)
         } catch (e: UnrecoverableEntryException) {
             // Handle exceptions related to key retrieval and keystore operations
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: NoSuchAlgorithmException) {
             // Handle exceptions related to unsupported algorithms
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: CertificateException) {
             // Handle exceptions related to certificate issues
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: IOException) {
             // Handle exceptions related to input/output issues
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: NoSuchPaddingException) {
             // Handle exceptions related to unsupported padding
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: InvalidKeyException) {
             // Handle exceptions related to an invalid encryption key
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: IllegalBlockSizeException) {
             // Handle exceptions related to illegal block sizes
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: BadPaddingException) {
             // Handle exceptions related to bad padding
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         } catch (e: IllegalArgumentException) {
             // Handle exceptions related to illegal argument
-            Log.d(Constant.APP_TAG, e.stackTraceToString())
+            Log.d(APP_TAG, e.stackTraceToString())
             return null
         }
     }

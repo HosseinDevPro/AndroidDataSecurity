@@ -6,22 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.biometric.BiometricManager
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.hkh.androiddatasecurity.R
-import com.hkh.androiddatasecurity.common.Constant.AUTHENTICATORS
-import com.hkh.androiddatasecurity.common.Constant.KEY_ALIAS_SYMMETRIC
-import com.hkh.androiddatasecurity.common.FingerprintPrompt
+import com.hkh.security.Constant.KEY_ALIAS_SYMMETRIC
 import com.hkh.androiddatasecurity.databinding.FragmentSymmetricBinding
+import com.hkh.security.FingerprintPrompt
 
 
 class SymmetricFragment : Fragment() {
 
-    private val canAuthenticate by lazy {
-        BiometricManager.from(requireContext().applicationContext)
-            .canAuthenticate(AUTHENTICATORS) == BiometricManager.BIOMETRIC_SUCCESS
+    private val fingerprintPrompt by lazy {
+        FingerprintPrompt(requireActivity())
     }
 
     private var _binding: FragmentSymmetricBinding? = null
@@ -91,7 +88,7 @@ class SymmetricFragment : Fragment() {
         }
 
     private fun setupViews() = with(binding) {
-        if (!canAuthenticate) errorView.visibility = View.VISIBLE
+        if (!fingerprintPrompt.canAuthenticate()) errorView.visibility = View.VISIBLE
         generateKeyButton.setOnClickListener {
             viewModel.checkKeyGeneration()
         }
@@ -141,7 +138,10 @@ class SymmetricFragment : Fragment() {
     }
 
     private fun openBiometric(onSuccess: () -> Unit) {
-        FingerprintPrompt.show(requireActivity()).observe(viewLifecycleOwner) { result ->
+        fingerprintPrompt.show(
+            title = getString(R.string.need_finger_print_for_operation),
+            description = getString(R.string.cancel)
+        ).observe(viewLifecycleOwner) { result ->
             if (result.isSuccess) {
                 onSuccess.invoke()
             } else {

@@ -1,8 +1,8 @@
-package com.hkh.androiddatasecurity.common
+package com.hkh.security
 
 import android.util.Base64
 
-object Utils {
+object Base64Utils {
 
     fun ByteArray.base64Encode(): String = Base64.encodeToString(
         this,
