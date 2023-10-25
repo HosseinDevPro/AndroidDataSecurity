@@ -1,8 +1,8 @@
 package com.hkh.security
 
 import android.util.Log
-import com.hkh.security.Constant.ANDROID_KEY_STORE_PROVIDER
-import com.hkh.security.Constant.APP_TAG
+import com.hkh.security.SecurityConstant.ANDROID_KEY_STORE_PROVIDER
+import com.hkh.security.SecurityConstant.APP_TAG
 import java.security.KeyStore
 import java.security.KeyStoreException
 import java.security.NoSuchAlgorithmException

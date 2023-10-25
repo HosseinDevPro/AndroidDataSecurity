@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.hkh.androiddatasecurity.R
-import com.hkh.security.Constant
+import com.hkh.security.SecurityConstant
 import com.hkh.security.KeyStoreManager
 import com.hkh.security.symmetric.SymmetricKeyGenerationUtil
 import com.hkh.security.symmetric.SealedData
@@ -32,7 +32,7 @@ class SymmetricViewModel : ViewModel() {
     val checkKeyGeneration: LiveData<Boolean> = _checkKeyGeneration
 
     fun checkKeyGeneration() {
-        if (!keyStoreManager.isKeyExist(Constant.KEY_ALIAS_SYMMETRIC)) {
+        if (!keyStoreManager.isKeyExist(SecurityConstant.KEY_ALIAS_SYMMETRIC)) {
             symmetricKeyGenerationUtil.getOrGenerateKey()
             _checkKeyGeneration.value = true
         } else {
@@ -43,8 +43,8 @@ class SymmetricViewModel : ViewModel() {
     private val _checkKeyRemove = MutableLiveData<Boolean>()
     val checkKeyRemove: LiveData<Boolean> = _checkKeyRemove
     fun checkKeyRemove() {
-        if (keyStoreManager.isKeyExist(Constant.KEY_ALIAS_SYMMETRIC)) {
-            keyStoreManager.removeKey(Constant.KEY_ALIAS_SYMMETRIC)
+        if (keyStoreManager.isKeyExist(SecurityConstant.KEY_ALIAS_SYMMETRIC)) {
+            keyStoreManager.removeKey(SecurityConstant.KEY_ALIAS_SYMMETRIC)
             _checkKeyRemove.value = true
         } else {
             _isKeyExist.value = false
@@ -56,7 +56,7 @@ class SymmetricViewModel : ViewModel() {
     val checkEncryptMessage: LiveData<String> = _checkEncryptMessage
     fun checkEncryption(userInputText: String) {
         if (userInputText.isNotEmpty()) {
-            if (keyStoreManager.isKeyExist(Constant.KEY_ALIAS_SYMMETRIC)) {
+            if (keyStoreManager.isKeyExist(SecurityConstant.KEY_ALIAS_SYMMETRIC)) {
                 _checkEncryptMessage.value = userInputText
             } else {
                 _isKeyExist.value = false
@@ -75,7 +75,7 @@ class SymmetricViewModel : ViewModel() {
     val checkDecryptMessage: LiveData<String> = _checkDecryptMessage
     fun checkDecryption(encryptedText: String, defaultText: String) {
         if (encryptedText != defaultText) {
-            if (keyStoreManager.isKeyExist(Constant.KEY_ALIAS_SYMMETRIC)) {
+            if (keyStoreManager.isKeyExist(SecurityConstant.KEY_ALIAS_SYMMETRIC)) {
                 _checkDecryptMessage.value = encryptedText
             } else {
                 _isKeyExist.value = false

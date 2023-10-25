@@ -2,7 +2,7 @@ package com.hkh.security
 
 import androidx.biometric.BiometricManager
 
-object Constant {
+object SecurityConstant {
 
     const val APP_TAG = "DataSecurityTAG"
     const val ANDROID_KEY_STORE_PROVIDER = "AndroidKeyStore"

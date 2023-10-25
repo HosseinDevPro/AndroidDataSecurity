@@ -12,7 +12,7 @@ import javax.crypto.Cipher
 class FingerprintPrompt(private val activity: FragmentActivity) {
 
     fun canAuthenticate() = BiometricManager.from(activity.applicationContext)
-        .canAuthenticate(Constant.AUTHENTICATORS) == BIOMETRIC_SUCCESS
+        .canAuthenticate(SecurityConstant.AUTHENTICATORS) == BIOMETRIC_SUCCESS
 
     fun show(title: String, description: String, cipher: Cipher? = null) =
         MutableLiveData<AuthenticationResultModel>().also { resultModel ->
@@ -35,7 +35,7 @@ class FingerprintPrompt(private val activity: FragmentActivity) {
     private fun buildPromptInfo(title: String, description: String) = PromptInfo.Builder()
         .setTitle(title)
         .setNegativeButtonText(description)
-        .setAllowedAuthenticators(Constant.AUTHENTICATORS)
+        .setAllowedAuthenticators(SecurityConstant.AUTHENTICATORS)
         .build()
 
     private class AuthenticationCallback(

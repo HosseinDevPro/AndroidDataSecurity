@@ -10,7 +10,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.hkh.androiddatasecurity.R
-import com.hkh.security.Constant.KEY_ALIAS_SYMMETRIC
+import com.hkh.security.SecurityConstant.KEY_ALIAS_SYMMETRIC
 import com.hkh.androiddatasecurity.databinding.FragmentSymmetricBinding
 import com.hkh.security.FingerprintPrompt
 
