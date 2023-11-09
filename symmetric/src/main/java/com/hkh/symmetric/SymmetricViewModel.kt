@@ -1,13 +1,12 @@
-package com.hkh.androiddatasecurity.ui.symmetric
+package com.hkh.symmetric
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hkh.androiddatasecurity.R
 import com.hkh.common.SecurityConstant
 import com.hkh.common.KeyStoreManager
-import com.hkh.common.symmetric.SymmetricKeyGenerationUtil
-import com.hkh.common.symmetric.SealedData
+import com.hkh.symmetric.util.SymmetricKeyGenerationUtil
+import com.hkh.symmetric.util.SealedData
 
 class SymmetricViewModel : ViewModel() {
 
@@ -72,7 +71,7 @@ class SymmetricViewModel : ViewModel() {
                 _isKeyExist.value = false
             }
         } else {
-            _showErrorMessage.value = R.string.user_input_is_empty
+            _showErrorMessage.value = com.hkh.common.R.string.user_input_is_empty
         }
     }
 
@@ -91,7 +90,7 @@ class SymmetricViewModel : ViewModel() {
                 _isKeyExist.value = false
             }
         } else {
-            _showErrorMessage.value = R.string.encrypted_text_is_empty
+            _showErrorMessage.value = com.hkh.common.R.string.encrypted_text_is_empty
         }
     }
 

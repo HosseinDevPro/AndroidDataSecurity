@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/symmetricFragment"
-        android:name="com.hkh.androiddatasecurity.ui.symmetric.SymmetricFragment"
+        android:name="com.hkh.symmetric.SymmetricFragment"
         android:label="SymmetricFragment"
         tools:layout="@layout/fragment_symmetric"/>
 

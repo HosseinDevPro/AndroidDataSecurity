@@ -1,4 +1,4 @@
-package com.hkh.common.symmetric
+package com.hkh.symmetric.util
 
 import com.hkh.common.Base64Utils.base64Encode
 

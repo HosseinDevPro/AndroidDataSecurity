@@ -1,4 +1,4 @@
-package com.hkh.common.symmetric
+package com.hkh.symmetric.util
 
 import android.os.Build
 import android.security.KeyStoreException

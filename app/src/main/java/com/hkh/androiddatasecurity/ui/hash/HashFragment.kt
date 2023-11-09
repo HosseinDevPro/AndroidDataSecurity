@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.hkh.androiddatasecurity.R
-import com.hkh.androiddatasecurity.common.Utils.showToast
+import com.hkh.common.base.Utils.showToast
 import com.hkh.androiddatasecurity.databinding.FragmentHashBinding
 
 class HashFragment: Fragment() {
@@ -54,7 +53,7 @@ class HashFragment: Fragment() {
         hashKeyButton.setOnClickListener {
             val input = getUserInputText()
             if (input.isNullOrEmpty()) {
-                showToast(getString(R.string.user_input_is_empty))
+                showToast(getString(com.hkh.common.R.string.user_input_is_empty))
             } else {
                 viewModel.generateHashedData(input)
             }
@@ -63,9 +62,9 @@ class HashFragment: Fragment() {
             val input = getUserInputText()
             val hashed = getHashedText()
             if (input.isNullOrEmpty()) {
-                showToast(getString(R.string.user_input_is_empty))
-            } else if (hashed == getString(R.string.unknown_hashed)) {
-                showToast(getString(R.string.hashed_text_is_empty))
+                showToast(getString(com.hkh.common.R.string.user_input_is_empty))
+            } else if (hashed == getString(com.hkh.common.R.string.unknown_hashed)) {
+                showToast(getString(com.hkh.common.R.string.hashed_text_is_empty))
             } else {
                 viewModel.verifyHashedData(input, hashed)
             }
@@ -87,11 +86,11 @@ class HashFragment: Fragment() {
     }
 
     private fun resetHashedTextView() {
-        binding.hashedTextView.text = getString(R.string.unknown_hashed)
+        binding.hashedTextView.text = getString(com.hkh.common.R.string.unknown_hashed)
     }
 
     private fun resetVerifiedTextView() {
-        binding.verifiedTextView.text = getString(R.string.unknown_verified)
+        binding.verifiedTextView.text = getString(com.hkh.common.R.string.unknown_verified)
     }
 
     private fun getUserInputText() = binding.userInputEditText.text?.toString()

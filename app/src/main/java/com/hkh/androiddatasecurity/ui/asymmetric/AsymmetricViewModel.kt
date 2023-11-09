@@ -68,7 +68,7 @@ class AsymmetricViewModel : ViewModel() {
                 _isKeyExist.value = false
             }
         } else {
-            _showErrorMessage.value = R.string.user_input_is_empty
+            _showErrorMessage.value = com.hkh.common.R.string.user_input_is_empty
         }
     }
     fun signData(userInputText: String) {
@@ -86,7 +86,7 @@ class AsymmetricViewModel : ViewModel() {
                 _isKeyExist.value = false
             }
         } else {
-            _showErrorMessage.value = R.string.signed_text_is_empty
+            _showErrorMessage.value = com.hkh.common.R.string.signed_text_is_empty
         }
     }
     fun verifyData(plainText: String, signedText: String) {

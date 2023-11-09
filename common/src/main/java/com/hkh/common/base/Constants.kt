@@ -1,4 +1,4 @@
-package com.hkh.androiddatasecurity.common
+package com.hkh.common.base
 
 import android.graphics.Color
 

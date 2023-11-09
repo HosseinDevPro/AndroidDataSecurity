@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.hkh.androiddatasecurity.R
-import com.hkh.androiddatasecurity.common.Constants.GREEN_COLOR
-import com.hkh.androiddatasecurity.common.Constants.RED_COLOR
-import com.hkh.androiddatasecurity.common.Utils.showToast
+import com.hkh.common.base.Constants.GREEN_COLOR
+import com.hkh.common.base.Constants.RED_COLOR
+import com.hkh.common.base.Utils.showToast
 import com.hkh.androiddatasecurity.databinding.FragmentAsymmetricBinding
 import com.hkh.common.FingerprintPrompt
 import com.hkh.common.SecurityConstant
@@ -52,7 +51,7 @@ class AsymmetricFragment: Fragment() {
     }
 
     private fun observeIsKeyExist() = viewModel.isKeyExist.observe(viewLifecycleOwner) {
-        showToast(getString(if (it) R.string.key_is_exist else R.string.key_was_not_exist))
+        showToast(getString(if (it) com.hkh.common.R.string.key_is_exist else com.hkh.common.R.string.key_was_not_exist))
     }
 
     private fun observeShowErrorMessage() = viewModel.showErrorMessage.observe(viewLifecycleOwner) {
@@ -117,7 +116,7 @@ class AsymmetricFragment: Fragment() {
         verifyKeyButton.setOnClickListener {
             viewModel.checkVerifying(
                 binding.signedTextView.text.toString(),
-                getString(R.string.unknown_signed)
+                getString(com.hkh.common.R.string.unknown_signed)
             )
         }
         userInputEditText.addTextChangedListener {
@@ -134,18 +133,18 @@ class AsymmetricFragment: Fragment() {
     }
 
     private fun resetSignedText() =
-        binding.signedTextView.setText(getString(R.string.unknown_signed))
+        binding.signedTextView.setText(getString(com.hkh.common.R.string.unknown_signed))
 
     private fun resetVerifiedText() =
-        binding.verifiedTextView.setText(getString(R.string.unknown_verified))
+        binding.verifiedTextView.setText(getString(com.hkh.common.R.string.unknown_verified))
 
     private fun checkKeyStatus() = binding.keyStatusTextView.apply {
         text = if (viewModel.keyStoreManager.isKeyExist(SecurityConstant.KEY_ALIAS_ASYMMETRIC)) {
             setTextColor(GREEN_COLOR)
-            getString(R.string.key_is_exist)
+            getString(com.hkh.common.R.string.key_is_exist)
         } else {
             setTextColor(RED_COLOR)
-            getString(R.string.key_was_not_exist)
+            getString(com.hkh.common.R.string.key_was_not_exist)
         }
     }
 
@@ -153,14 +152,14 @@ class AsymmetricFragment: Fragment() {
 
     private fun openBiometric(onSuccess: () -> Unit) {
         fingerprintPrompt.show(
-            title = getString(R.string.need_finger_print_for_operation),
-            description = getString(R.string.cancel)
+            title = getString(com.hkh.common.R.string.need_finger_print_for_operation),
+            description = getString(com.hkh.common.R.string.cancel)
         ).observe(viewLifecycleOwner) { result ->
             if (result.isSuccess) {
                 onSuccess.invoke()
             } else {
                 if (result.isFailedToReadFingerPrint())
-                    showToast(getString(R.string.failed_to_read_biometric))
+                    showToast(getString(com.hkh.common.R.string.failed_to_read_biometric))
             }
         }
     }
