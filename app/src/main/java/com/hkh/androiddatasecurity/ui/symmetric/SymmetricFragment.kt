@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.hkh.androiddatasecurity.R
 import com.hkh.androiddatasecurity.common.Constants.GREEN_COLOR
 import com.hkh.androiddatasecurity.common.Constants.RED_COLOR
+import com.hkh.androiddatasecurity.common.Utils.showToast
 import com.hkh.security.SecurityConstant.KEY_ALIAS_SYMMETRIC
 import com.hkh.androiddatasecurity.databinding.FragmentSymmetricBinding
 import com.hkh.security.FingerprintPrompt
@@ -133,10 +134,6 @@ class SymmetricFragment : Fragment() {
             setTextColor(RED_COLOR)
             getString(R.string.key_was_not_exist)
         }
-    }
-
-    private fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     private fun openBiometric(onSuccess: () -> Unit) {
