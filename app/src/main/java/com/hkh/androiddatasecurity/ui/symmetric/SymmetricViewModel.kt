@@ -18,8 +18,18 @@ class SymmetricViewModel : ViewModel() {
         SymmetricKeyGenerationUtil(keyStoreManager)
     }
 
-    var sealedData: SealedData? = null
-    var decryptedData: String? = null
+    private val _encryptedData = MutableLiveData<SealedData?>()
+    val encryptedData: LiveData<SealedData?> = _encryptedData
+    fun resetEncryptedData() {
+        _encryptedData.value = null
+    }
+
+    private val _decryptedData = MutableLiveData<String?>()
+    val decryptedData: LiveData<String?> = _decryptedData
+    fun resetDecryptedData() {
+        _decryptedData.value = null
+    }
+
 
     private val _isKeyExist = MutableLiveData<Boolean>()
     val isKeyExist: LiveData<Boolean> = _isKeyExist
@@ -52,12 +62,12 @@ class SymmetricViewModel : ViewModel() {
     }
 
 
-    private val _checkEncryptMessage = MutableLiveData<String>()
-    val checkEncryptMessage: LiveData<String> = _checkEncryptMessage
+    private val _checkEncryptionMessage = MutableLiveData<String>()
+    val checkEncryptionMessage: LiveData<String> = _checkEncryptionMessage
     fun checkEncryption(userInputText: String) {
         if (userInputText.isNotEmpty()) {
             if (keyStoreManager.isKeyExist(SecurityConstant.KEY_ALIAS_SYMMETRIC)) {
-                _checkEncryptMessage.value = userInputText
+                _checkEncryptionMessage.value = userInputText
             } else {
                 _isKeyExist.value = false
             }
@@ -67,16 +77,16 @@ class SymmetricViewModel : ViewModel() {
     }
 
     fun encryptData(userInputText: String) {
-        sealedData = symmetricKeyGenerationUtil.encrypt(userInputText)
+        _encryptedData.value = symmetricKeyGenerationUtil.encrypt(userInputText)
     }
 
 
-    private val _checkDecryptMessage = MutableLiveData<String>()
-    val checkDecryptMessage: LiveData<String> = _checkDecryptMessage
+    private val _checkDecryptionMessage = MutableLiveData<String>()
+    val checkDecryptionMessage: LiveData<String> = _checkDecryptionMessage
     fun checkDecryption(encryptedText: String, defaultText: String) {
         if (encryptedText != defaultText) {
             if (keyStoreManager.isKeyExist(SecurityConstant.KEY_ALIAS_SYMMETRIC)) {
-                _checkDecryptMessage.value = encryptedText
+                _checkDecryptionMessage.value = encryptedText
             } else {
                 _isKeyExist.value = false
             }
@@ -86,9 +96,9 @@ class SymmetricViewModel : ViewModel() {
     }
 
     fun decryptData(encryptedText: String) {
-        decryptedData = symmetricKeyGenerationUtil.decrypt(
+        _decryptedData.value = symmetricKeyGenerationUtil.decrypt(
             encryptedBase64EncodedText = encryptedText,
-            iv = sealedData?.initialVector
+            iv = _encryptedData.value?.initialVector
         )
     }
 

@@ -42,8 +42,10 @@ class SymmetricFragment : Fragment() {
         observeShowErrorMessage()
         observeCheckKeyGeneration()
         observeCheckKeyRemove()
-        observeCheckEncryptMessage()
-        observeCheckDecryptMessage()
+        observeCheckEncryptionMessage()
+        observeEncryptedData()
+        observeCheckDecryptionMessage()
+        observeDecryptedData()
 
         checkKeyStatus()
         setupViews()
@@ -69,22 +71,33 @@ class SymmetricFragment : Fragment() {
             checkKeyStatus()
         }
 
-    private fun observeCheckEncryptMessage() =
-        viewModel.checkEncryptMessage.observe(viewLifecycleOwner) { userInputText ->
+    private fun observeCheckEncryptionMessage() =
+        viewModel.checkEncryptionMessage.observe(viewLifecycleOwner) { userInputText ->
             openBiometric {
                 viewModel.encryptData(userInputText)
-                binding.encryptedTextView.text = viewModel.sealedData?.getBase64CipherData()?.trim()
-                resetDecryptedText()
             }
         }
 
-    private fun observeCheckDecryptMessage() =
-        viewModel.checkDecryptMessage.observe(viewLifecycleOwner) { encryptedText ->
+    private fun observeEncryptedData() =
+        viewModel.encryptedData.observe(viewLifecycleOwner) { data ->
+            data?.let {
+                binding.encryptedTextView.text = it.getBase64CipherData().trim()
+            } ?: resetEncryptedText()
+            resetDecryptedText()
+        }
+
+    private fun observeCheckDecryptionMessage() =
+        viewModel.checkDecryptionMessage.observe(viewLifecycleOwner) { encryptedText ->
             openBiometric {
                 viewModel.decryptData(encryptedText)
-                binding.decryptedTextView.text = viewModel.decryptedData
-                viewModel.sealedData = null
             }
+        }
+
+    private fun observeDecryptedData() =
+        viewModel.decryptedData.observe(viewLifecycleOwner) { decryptedText ->
+            decryptedText?.let {
+                binding.decryptedTextView.text = it
+            } ?: resetDecryptedText()
         }
 
     private fun setupViews() = with(binding) {
@@ -110,10 +123,10 @@ class SymmetricFragment : Fragment() {
     }
 
     private fun resetAllData(canResetInput: Boolean) {
-        resetEncryptedText()
-        resetDecryptedText()
-        viewModel.sealedData = null
-        viewModel.decryptedData = null
+        with(viewModel) {
+            resetEncryptedData()
+            resetDecryptedData()
+        }
         if (canResetInput) binding.userInputEditText.setText("")
     }
 
