@@ -42,9 +42,9 @@ android {
 dependencies {
 
     implementation(project(":common"))
-    implementation(project(":symmetric"))
-    implementation(project(":asymmetric"))
-    implementation(project(":hash"))
+    implementation(project(":security:symmetric"))
+    implementation(project(":security:asymmetric"))
+    implementation(project(":security:hash"))
 
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.core:core-ktx:1.9.0")

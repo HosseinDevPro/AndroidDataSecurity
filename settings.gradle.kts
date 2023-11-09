@@ -16,6 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "AndroidDataSecurity"
 include(":app")
 include(":common")
-include(":symmetric")
-include(":asymmetric")
-include(":hash")
+include(":security:symmetric")
+include(":security:asymmetric")
+include(":security:hash")

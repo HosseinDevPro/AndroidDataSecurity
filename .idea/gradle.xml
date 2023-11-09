@@ -12,10 +12,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/asymmetric" />
             <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/hash" />
-            <option value="$PROJECT_DIR$/symmetric" />
+            <option value="$PROJECT_DIR$/security" />
+            <option value="$PROJECT_DIR$/security/asymmetric" />
+            <option value="$PROJECT_DIR$/security/hash" />
+            <option value="$PROJECT_DIR$/security/symmetric" />
           </set>
         </option>
       </GradleProjectSettings>
