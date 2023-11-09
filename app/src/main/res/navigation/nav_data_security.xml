@@ -9,24 +9,34 @@
         android:id="@+id/homeFragment"
         android:name="com.hkh.androiddatasecurity.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_to_symmetricFragment"
+            app:destination="@+id/symmetricFragment" />
+        <action
+            android:id="@+id/action_to_asymmetricFragment"
+            app:destination="@+id/asymmetricFragment" />
+        <action
+            android:id="@+id/action_to_hashFragment"
+            app:destination="@+id/hashFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/symmetricFragment"
         android:name="com.hkh.symmetric.SymmetricFragment"
         android:label="SymmetricFragment"
-        tools:layout="@layout/fragment_symmetric"/>
+        tools:layout="@layout/fragment_symmetric" />
 
     <fragment
         android:id="@+id/asymmetricFragment"
         android:name="com.hkh.androiddatasecurity.ui.asymmetric.AsymmetricFragment"
         android:label="AsymmetricFragment"
-        tools:layout="@layout/fragment_asymmetric"/>
+        tools:layout="@layout/fragment_asymmetric" />
 
     <fragment
         android:id="@+id/hashFragment"
         android:name="com.hkh.androiddatasecurity.ui.hash.HashFragment"
         android:label="HashFragment"
-        tools:layout="@layout/fragment_hash"/>
+        tools:layout="@layout/fragment_hash" />
 
 </navigation>

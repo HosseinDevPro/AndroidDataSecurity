@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.hkh.androiddatasecurity.R
 import com.hkh.androiddatasecurity.databinding.FragmentHomeBinding
 
 class HomeFragment: Fragment() {
@@ -37,13 +36,13 @@ class HomeFragment: Fragment() {
 
     private fun setupListener() = with(binding) {
         symmetricButton.setOnClickListener {
-            findNavController().navigate(R.id.symmetricFragment)
+            findNavController().navigate(HomeFragmentDirections.actionToSymmetricFragment())
         }
         asymmetricButton.setOnClickListener {
-            findNavController().navigate(R.id.asymmetricFragment)
+            findNavController().navigate(HomeFragmentDirections.actionToAsymmetricFragment())
         }
         hashButton.setOnClickListener {
-            findNavController().navigate(R.id.hashFragment)
+            findNavController().navigate(HomeFragmentDirections.actionToHashFragment())
         }
     }
 
