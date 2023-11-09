@@ -3,10 +3,11 @@
 
     <string name="symmetric_page_title">We are using reversible-symmetric way with AES-256 algorithm data encryption/decryption</string>
     <string name="asymmetric_page_title">We are using reversible-asymmetric way with EC-256 algorithm data sign/verify</string>
+    <string name="hash_page_title">We are using irreversible-hash way with SHA-256 algorithm</string>
 
     <string name="unknown_encrypted">Encrypted: ???</string>
     <string name="unknown_decrypted">Decrypted: ???</string>
-
+    <string name="unknown_hashed">Hashed: ???</string>
     <string name="unknown_signed">Signed: ???</string>
     <string name="unknown_verified">Verified: ???</string>
 
@@ -18,5 +19,7 @@
     <string name="failed_to_read_biometric">Failed to read biometric</string>
     <string name="need_finger_print_for_operation">Need FingerPrint for Operation.</string>
     <string name="cancel">Cancel</string>
+    <string name="please_enter_text">Please enter a text</string>
+    <string name="hashed_text_is_empty">Hashed Text Is Empty!</string>
 
 </resources>

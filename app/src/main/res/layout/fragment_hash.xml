@@ -7,17 +7,101 @@
     tools:context=".ui.hash.HashFragment">
 
     <TextView
-        android:id="@+id/hash_text"
+        android:id="@+id/pageTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
+        android:text="@string/hash_page_title"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
-        tools:text="Sample Text"/>
+        app:layout_constraintVertical_bias="0.1" />
+
+    <EditText
+        android:id="@+id/userInputEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="50dp"
+        android:hint="@string/please_enter_text"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pageTitle" />
+
+    <Button
+        android:id="@+id/hashKeyButton"
+        android:layout_width="250dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#3F51B5"
+        android:text="Generate Hash Message"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userInputEditText" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/hashedTextView"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="20dp"
+        android:background="#DAD8D8"
+        android:gravity="center"
+        android:paddingHorizontal="4dp"
+        android:text="@string/unknown_hashed"
+        android:textAlignment="center"
+        android:textColor="#673AB7"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hashKeyButton" />
+
+    <Button
+        android:id="@+id/verifyKeyButton"
+        android:layout_width="250dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#009688"
+        android:text="Verify Hash Message"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hashedTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/verifiedTextView"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="20dp"
+        android:background="#DAD8D8"
+        android:gravity="center"
+        android:paddingHorizontal="4dp"
+        android:text="@string/unknown_verified"
+        android:textAlignment="center"
+        android:textColor="#9C27B0"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verifyKeyButton" />
+
+    <Button
+        android:id="@+id/resetKeyButton"
+        android:layout_width="250dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#F44336"
+        android:text="Reset All Data"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
