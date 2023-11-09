@@ -17,3 +17,4 @@ rootProject.name = "AndroidDataSecurity"
 include(":app")
 include(":common")
 include(":symmetric")
+include(":asymmetric")
