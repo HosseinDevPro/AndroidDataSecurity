@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.hkh.androiddatasecurity.ui.home.HomeFragment"
+        android:name="com.hkh.androiddatasecurity.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action

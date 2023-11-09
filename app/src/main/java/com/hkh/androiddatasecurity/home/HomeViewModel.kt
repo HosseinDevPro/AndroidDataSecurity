@@ -1,4 +1,4 @@
-package com.hkh.androiddatasecurity.ui.home
+package com.hkh.androiddatasecurity.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

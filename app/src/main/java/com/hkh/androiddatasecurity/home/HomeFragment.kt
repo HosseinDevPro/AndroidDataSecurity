@@ -1,4 +1,4 @@
-package com.hkh.androiddatasecurity.ui.home
+package com.hkh.androiddatasecurity.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
