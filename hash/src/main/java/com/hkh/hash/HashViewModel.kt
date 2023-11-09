@@ -1,9 +1,9 @@
-package com.hkh.androiddatasecurity.ui.hash
+package com.hkh.hash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hkh.common.hash.HashUtil
+import com.hkh.hash.util.HashUtil
 
 class HashViewModel : ViewModel() {
 

@@ -1,4 +1,4 @@
-package com.hkh.androiddatasecurity.ui.hash
+package com.hkh.hash
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.hkh.common.base.Utils.showToast
-import com.hkh.androiddatasecurity.databinding.FragmentHashBinding
+import com.hkh.hash.databinding.FragmentHashBinding
 
 class HashFragment: Fragment() {
 

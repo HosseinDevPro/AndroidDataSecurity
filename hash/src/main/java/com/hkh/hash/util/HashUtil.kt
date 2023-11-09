@@ -1,4 +1,4 @@
-package com.hkh.common.hash
+package com.hkh.hash.util
 
 import com.hkh.common.Base64Utils.base64Decode
 import com.hkh.common.Base64Utils.base64Encode
