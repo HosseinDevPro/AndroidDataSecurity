@@ -10,6 +10,8 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.hkh.androiddatasecurity.R
+import com.hkh.androiddatasecurity.common.Constants.GREEN_COLOR
+import com.hkh.androiddatasecurity.common.Constants.RED_COLOR
 import com.hkh.security.SecurityConstant.KEY_ALIAS_SYMMETRIC
 import com.hkh.androiddatasecurity.databinding.FragmentSymmetricBinding
 import com.hkh.security.FingerprintPrompt
@@ -154,11 +156,6 @@ class SymmetricFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        val GREEN_COLOR = Color.argb(255, 33, 103, 94)
-        val RED_COLOR = Color.argb(255, 188, 19, 31)
     }
 
 }
