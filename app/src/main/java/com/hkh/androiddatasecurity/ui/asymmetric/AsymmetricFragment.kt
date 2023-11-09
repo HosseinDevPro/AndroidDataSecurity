@@ -12,8 +12,8 @@ import com.hkh.androiddatasecurity.common.Constants.GREEN_COLOR
 import com.hkh.androiddatasecurity.common.Constants.RED_COLOR
 import com.hkh.androiddatasecurity.common.Utils.showToast
 import com.hkh.androiddatasecurity.databinding.FragmentAsymmetricBinding
-import com.hkh.security.FingerprintPrompt
-import com.hkh.security.SecurityConstant
+import com.hkh.common.FingerprintPrompt
+import com.hkh.common.SecurityConstant
 
 class AsymmetricFragment: Fragment() {
 

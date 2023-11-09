@@ -3,7 +3,7 @@ package com.hkh.androiddatasecurity.ui.hash
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hkh.security.hash.HashUtil
+import com.hkh.common.hash.HashUtil
 
 class HashViewModel : ViewModel() {
 

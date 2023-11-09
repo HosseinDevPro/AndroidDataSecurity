@@ -11,9 +11,9 @@ import com.hkh.androiddatasecurity.R
 import com.hkh.androiddatasecurity.common.Constants.GREEN_COLOR
 import com.hkh.androiddatasecurity.common.Constants.RED_COLOR
 import com.hkh.androiddatasecurity.common.Utils.showToast
-import com.hkh.security.SecurityConstant.KEY_ALIAS_SYMMETRIC
+import com.hkh.common.SecurityConstant.KEY_ALIAS_SYMMETRIC
 import com.hkh.androiddatasecurity.databinding.FragmentSymmetricBinding
-import com.hkh.security.FingerprintPrompt
+import com.hkh.common.FingerprintPrompt
 
 class SymmetricFragment : Fragment() {
 

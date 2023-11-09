@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.hkh.androiddatasecurity.R
-import com.hkh.security.SecurityConstant
-import com.hkh.security.KeyStoreManager
-import com.hkh.security.symmetric.SymmetricKeyGenerationUtil
-import com.hkh.security.symmetric.SealedData
+import com.hkh.common.SecurityConstant
+import com.hkh.common.KeyStoreManager
+import com.hkh.common.symmetric.SymmetricKeyGenerationUtil
+import com.hkh.common.symmetric.SealedData
 
 class SymmetricViewModel : ViewModel() {
 
