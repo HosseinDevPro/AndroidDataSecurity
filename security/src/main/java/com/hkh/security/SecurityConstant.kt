@@ -14,6 +14,7 @@ object SecurityConstant {
     const val AUTHENTICATION_VALIDITY_DURATION = 10
     const val ALGORITHM_SHA256_WITH_ECDSA = "SHA256withECDSA"
     const val ELLIPTIC_CURVE_STANDARD_NAME = "secp256r1"
+    const val SHA_256 = "SHA-256"
 
 
     const val AUTHENTICATORS = BiometricManager.Authenticators.BIOMETRIC_STRONG
