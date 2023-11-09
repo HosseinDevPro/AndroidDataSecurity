@@ -1,11 +1,9 @@
 package com.hkh.androiddatasecurity.ui.symmetric
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -16,7 +14,6 @@ import com.hkh.androiddatasecurity.common.Utils.showToast
 import com.hkh.security.SecurityConstant.KEY_ALIAS_SYMMETRIC
 import com.hkh.androiddatasecurity.databinding.FragmentSymmetricBinding
 import com.hkh.security.FingerprintPrompt
-
 
 class SymmetricFragment : Fragment() {
 
