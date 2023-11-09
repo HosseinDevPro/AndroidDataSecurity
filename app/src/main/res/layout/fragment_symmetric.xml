@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.symmetric.SymmetricFragment">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/symmetric_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         app:layout_constraintStart_toEndOf="@+id/generateKeyButton"
         app:layout_constraintTop_toTopOf="@+id/generateKeyButton" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/keyStatusTextView"
         android:layout_width="200dp"
         android:layout_height="48dp"
@@ -97,7 +97,7 @@
         app:layout_constraintStart_toEndOf="@+id/encryptKeyButton"
         app:layout_constraintTop_toTopOf="@+id/encryptKeyButton" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/encryptedTextView"
         android:layout_width="150dp"
         android:layout_height="48dp"
@@ -115,7 +115,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/encryptKeyButton" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/decryptedTextView"
         android:layout_width="150dp"
         android:layout_height="48dp"
