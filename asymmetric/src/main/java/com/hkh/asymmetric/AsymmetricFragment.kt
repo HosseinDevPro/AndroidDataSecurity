@@ -1,4 +1,4 @@
-package com.hkh.androiddatasecurity.ui.asymmetric
+package com.hkh.asymmetric
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.hkh.common.base.Constants.GREEN_COLOR
 import com.hkh.common.base.Constants.RED_COLOR
 import com.hkh.common.base.Utils.showToast
-import com.hkh.androiddatasecurity.databinding.FragmentAsymmetricBinding
+import com.hkh.asymmetric.databinding.FragmentAsymmetricBinding
 import com.hkh.common.FingerprintPrompt
 import com.hkh.common.SecurityConstant
 

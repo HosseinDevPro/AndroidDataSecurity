@@ -1,12 +1,11 @@
-package com.hkh.androiddatasecurity.ui.asymmetric
+package com.hkh.asymmetric
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hkh.androiddatasecurity.R
+import com.hkh.asymmetric.util.AsymmetricKeyGenerationUtil
 import com.hkh.common.KeyStoreManager
 import com.hkh.common.SecurityConstant
-import com.hkh.common.asymmetric.AsymmetricKeyGenerationUtil
 
 class AsymmetricViewModel : ViewModel() {
 

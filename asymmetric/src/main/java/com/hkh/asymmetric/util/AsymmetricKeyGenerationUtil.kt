@@ -1,4 +1,4 @@
-package com.hkh.common.asymmetric
+package com.hkh.asymmetric.util
 
 import android.os.Build
 import android.security.keystore.KeyGenParameterSpec

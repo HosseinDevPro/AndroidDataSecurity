@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/asymmetricFragment"
-        android:name="com.hkh.androiddatasecurity.ui.asymmetric.AsymmetricFragment"
+        android:name="com.hkh.asymmetric.AsymmetricFragment"
         android:label="AsymmetricFragment"
         tools:layout="@layout/fragment_asymmetric" />
 
