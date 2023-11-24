@@ -1,6 +1,4 @@
 # AndroidDataSecurity
-ArticleLink: https://medium.com/@hossein_kheirollahpour/data-security-in-android-5561ed75f24a
-.
 Sample project for data security in android
 .
 It contains 5 module:
@@ -9,3 +7,5 @@ It contains 5 module:
 3. security.symmetric: It contain all of codes that related to 'Symmetric' algorithm
 4. security.asymmetric: It contain all of codes that related to 'Asymmetric' algorithm
 5. security.hash: It contain all of codes that related to 'Hash' algorithm
+
+- ArticleLink: https://medium.com/@hossein_kheirollahpour/data-security-in-android-5561ed75f24a
