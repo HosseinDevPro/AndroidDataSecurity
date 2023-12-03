@@ -1,5 +1,6 @@
 package com.hkh.symmetric
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +38,7 @@ class SymmetricFragment : Fragment() {
     }
 
     private fun initActions() {
+        viewModel.supportStrongBox = hasStrongBox()
         observeIsKeyExist()
         observeShowErrorMessage()
         observeCheckKeyGeneration()
@@ -158,6 +160,8 @@ class SymmetricFragment : Fragment() {
             }
         }
     }
+
+    private fun hasStrongBox() = requireContext().packageManager.hasSystemFeature(PackageManager.FEATURE_STRONGBOX_KEYSTORE)
 
     override fun onDestroyView() {
         super.onDestroyView()

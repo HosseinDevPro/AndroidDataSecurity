@@ -33,7 +33,7 @@ import java.security.cert.Certificate
 import java.security.cert.CertificateException
 import java.security.spec.ECGenParameterSpec
 
-class AsymmetricKeyGenerationUtil(private val keyStoreManager: KeyStoreManager) {
+class AsymmetricKeyGenerationUtil(private val hasStrongBox: Boolean, private val keyStoreManager: KeyStoreManager) {
 
     private var keyEntry: KeyStore.PrivateKeyEntry? = null
 
@@ -126,8 +126,8 @@ class AsymmetricKeyGenerationUtil(private val keyStoreManager: KeyStoreManager) 
 
             // Check the Android version to set additional security features
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                setIsStrongBoxBacked(true)  // Use StrongBox for hardware-backed security
                 setUnlockedDeviceRequired(true)  // Require an unlocked device for key usage
+                if (hasStrongBox) setIsStrongBoxBacked(true)  // Use StrongBox for hardware-backed security
             }
 
             // Check the Android version to set invalidated by biometric enrollment

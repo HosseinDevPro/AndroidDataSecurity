@@ -10,11 +10,13 @@ import com.hkh.symmetric.util.SealedData
 
 class SymmetricViewModel : ViewModel() {
 
+    var supportStrongBox = false
+
     val keyStoreManager by lazy {
         KeyStoreManager()
     }
     private val symmetricKeyGenerationUtil by lazy {
-        SymmetricKeyGenerationUtil(keyStoreManager)
+        SymmetricKeyGenerationUtil(supportStrongBox, keyStoreManager)
     }
 
     private val _encryptedData = MutableLiveData<SealedData?>()

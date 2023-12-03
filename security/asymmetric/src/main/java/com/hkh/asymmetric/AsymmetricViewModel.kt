@@ -9,11 +9,13 @@ import com.hkh.common.SecurityConstant
 
 class AsymmetricViewModel : ViewModel() {
 
+    var supportStrongBox = false
+
     val keyStoreManager by lazy {
         KeyStoreManager()
     }
     private val asymmetricKeyGenerationUtil by lazy {
-        AsymmetricKeyGenerationUtil(keyStoreManager)
+        AsymmetricKeyGenerationUtil(supportStrongBox, keyStoreManager)
     }
 
     private val _signedData = MutableLiveData<String?>()

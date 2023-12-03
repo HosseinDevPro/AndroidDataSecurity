@@ -31,7 +31,7 @@ import javax.crypto.NoSuchPaddingException
 import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 
-class SymmetricKeyGenerationUtil(private val keyStoreManager: KeyStoreManager) {
+class SymmetricKeyGenerationUtil(private val hasStrongBox: Boolean, private val keyStoreManager: KeyStoreManager) {
 
     // Create key if not exist, else retrieve the key from keystore
     fun getOrGenerateKey(): SecretKey? {
@@ -102,7 +102,7 @@ class SymmetricKeyGenerationUtil(private val keyStoreManager: KeyStoreManager) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 // Set additional security features for Android P (API level 28) and higher
                 setUnlockedDeviceRequired(true) // Require an unlocked device to use the key
-                setIsStrongBoxBacked(true) // Use StrongBox security if available
+                if (hasStrongBox) setIsStrongBoxBacked(true) // Use StrongBox security if available
             }
         }
         return builder.build() // Build and return the KeyGenParameterSpec

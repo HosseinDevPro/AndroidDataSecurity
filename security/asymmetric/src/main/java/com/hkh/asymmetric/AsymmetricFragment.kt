@@ -1,5 +1,6 @@
 package com.hkh.asymmetric
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +38,7 @@ class AsymmetricFragment: Fragment() {
     }
 
     private fun initActions() {
+        viewModel.supportStrongBox = hasStrongBox()
         observeIsKeyExist()
         observeShowErrorMessage()
         observeCheckKeyGeneration()
@@ -163,6 +165,8 @@ class AsymmetricFragment: Fragment() {
             }
         }
     }
+
+    private fun hasStrongBox() = requireContext().packageManager.hasSystemFeature(PackageManager.FEATURE_STRONGBOX_KEYSTORE)
 
     override fun onDestroyView() {
         super.onDestroyView()
